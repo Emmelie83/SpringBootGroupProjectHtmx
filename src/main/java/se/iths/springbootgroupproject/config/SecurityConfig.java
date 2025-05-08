@@ -18,12 +18,12 @@ public class SecurityConfig {
     SecurityFilterChain web(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/login", "/oauth/**", "/logout", "/error**", "/web/publicMessages", "/web/home/**", "/styles/**").permitAll()
+                        .requestMatchers("/", "/login", "/oauth/**", "/logout", "/error**", "/web/publicMessages", "/web/home/**", "/styles/**", "styles/main.css").permitAll()
 
                         .anyRequest().authenticated()
                 )
                 .oauth2Login(oauth2Login ->
-                        oauth2Login.defaultSuccessUrl("/web/messages", true)
+                        oauth2Login.defaultSuccessUrl("/messages/messages", true)
                 )
                 .logout(logout ->
                         logout.logoutSuccessUrl("/web/home")

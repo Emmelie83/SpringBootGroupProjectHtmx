@@ -115,7 +115,7 @@ public class WebController {
 
         messageService.saveMessage(message.toEntity(loggedInUser.orElse(null)));
 
-        return "redirect:/web/messages";
+        return "redirect:/messages/messages";
     }
 
 
@@ -136,14 +136,14 @@ public class WebController {
 
     private String redirectIfNotOwnerOrAdmin(OAuth2User oauth2User, Message message) {
         if (oauth2User == null) {
-            return "redirect:/web/messages.html";
+            return "redirect:/messages/messages";
         }
 
         Integer githubId = oauth2User.getAttribute("id");
         Optional<User> loggedInUser = userService.findByUserId(githubId);
 
         if (!Objects.equals(message.getUser().getGitId(), githubId) && (loggedInUser.isEmpty() || !loggedInUser.get().getRole().equals("ROLE_ADMIN"))) {
-            return "redirect:/web/messages.html";
+            return "redirect:/messages/messages";
         }
         return null;
     }
@@ -163,7 +163,7 @@ public class WebController {
 
         messageService.updateMessage(messageId, originalMessage);
 
-        return "redirect:/web/messages";
+        return "redirect:/messages/messages";
     }
 
     @GetMapping("/web/messages")
