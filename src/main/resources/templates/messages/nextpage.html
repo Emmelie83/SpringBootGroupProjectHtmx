@@ -29,7 +29,6 @@
         <button th:if="${moreMessagesToLoad}" class='btn' th:attr="hx-get=@{/messages/nextpage(page=${nextpage})}"
                 hx-target="#replaceMe"
                 hx-swap="outerHTML" th:text="#{loadmore}">
-            Load More...
         </button>
         <p th:if="${!moreMessagesToLoad}" th:text="#{nomoremessages}">No more messages</p>
     </td>

@@ -2,6 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <link th:href="@{/styles/main.css}" rel="stylesheet"/>
     <title>Messages</title>
     <script type="text/javascript" th:src="@{/webjars/htmx.org/dist/htmx.min.js}"></script>
@@ -67,7 +69,6 @@
                 <button th:if="${moreMessagesToLoad}" class='btn' th:attr="hx-get=@{/messages/nextpage(page=${nextpage})}"
                         hx-target="#replaceMe"
                         hx-swap="outerHTML" th:text="#{loadmore}">
-                    Load More...
                 </button>
                 <p th:if="${!moreMessagesToLoad}" th:text="#{nomoremessages}">No more messages</p>
             </td>
