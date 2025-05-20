@@ -40,11 +40,11 @@
             <td th:text="${message.messageTitle}">Title</td>
             <td th:text="${message.messageBody}" class="message_body">Lorum ipsum</td>
             <td>
-                <button class="block" th:attr="hx-get=@{/messages/usermessages(userId=${message.user?.id})}"
+                <a class="block" th:attr="hx-get=@{/messages/usermessages(userId=${message.user?.id})}"
                    hx-target="tbody"
                    hx-swap="outerHTML" th:text="${message.user.userName}">
                     Jane Doe
-                </button>
+                </a>
 
             </td>
             <td th:text="${message.createdDate}">2020-01-01</td>

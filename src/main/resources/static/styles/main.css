@@ -12,6 +12,8 @@ h1 {
 }
 
 a {
+    cursor: pointer;
+    color: royalblue;
     text-decoration: none;
 }
 
